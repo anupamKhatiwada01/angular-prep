@@ -1,0 +1,64 @@
+AOT compilation - Compilation to browser runnable static html/css/js files from components and typescript files.
+
+What are the advantages of angular over other frameworks?
+Ans--> Angular provides certain features such as routing, state management, rxjs library and http services out of the box.
+       Declarative UI- Angular uses HTML to render the UI of an application HTML is declarative and easier to use than js.
+       Long term google development and maintenence support.
+
+
+AOT compilation--> Angular applications need to be compiled first before running because browser does not understand 
+                   templates and components. There are two types of compilation:
+                   JIT and AOT
+                   In JIT the the compilation happens after the app has been downloaded in the browser whereas in AOT it happens
+                   in compile time leading to faster rendering.
+                   Eg. ng serve --aot and ng build --aot
+
+Components, modules and services:
+        Components--> Building blocks of angular application. Consist of html template, styles and class for business logic.
+        Modules--> Place to group components, directives, services and pipes. Defined with @ngModule declaration.
+                   They are of two types Base module and feature module. Defines which module has access to which components.
+        Services--> Services are objects which get instantiated only once during the lifecycle of an application. The main
+                    objective of a service is to share data, functions to different components of an Angular application.
+                    Decorated with @Injectable decorator. Any method defined within a service can be directly used within   
+                    any component by just importing the service.
+
+Life cycle hooks: Angular components have a life cycle ie different phases it goes though to the time of creation to the time
+                  it gets destroyed. Angular provides hooks to tap into these and trigger changes at specific phases of the 
+                  lifecycle.
+
+Data binding:  Data binding is a feature of angular which provides a way to communicate with the component(model) and the 
+               template (view). It is either one way or two way. Interpolation is one way data binding.
+
+How are angular expressions different from js expressions?
+Angular expressions can be written directly in the html. They are local scoped as opposed to global document scoped.
+They do not support loops, conditionals and expressions. They support the use of pipes.
+
+How are observables different from promises? Lazy ie. not called unless subscibed as opposed to eager. They can be
+                                             cancelled using the unsubscribe method. Provides operators such as 
+                                             map, filter, forEach, reduce, retry etc.
+                                             Promises are always asynchronous whereas observables can be either.
+
+
+What are directives in angular? A class that is declared with @Directive decorator.
+                                3 types:
+                                    1. Components - Directives with a view decorated with @Component.
+                                    2. Structural directives used to to manipulate the dom. Start with *.
+                                       Eg. *ngIf and *ngFor.
+                                    3. Attribute directive used to change the look and behaviour of a dom element.
+
+Sharing data between components in angular--> Parent to child using the @Input() decorator in child and [] in parent.
+                                              Child to parent using the @ViewChild decorator:
+                                                    - Access child components using the @ViewChild and @ViewChildren
+                                                        inside the parent. We can reference the child and all its data
+                                                        directly from the parent within the AfterViewInit life cycle hook.
+
+                                              Child to parent using the @Output and Event Emitters
+
+                                              Eg. @Output() dataEvent = new EventEmitter<string>();
+                                                            this.dataEvent.emit(data)
+                                                            This event and data is caught in the parent component
+                                                            within the child component selector.
+
+
+
+
